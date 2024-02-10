@@ -6,9 +6,8 @@ name: Deploy IA4s Next.js site to Pages in prod
 
 on:
   push:
-    push:
-      branches:
-        - main    
+    branches:
+      - main    
     tags:
       - '*'
 
