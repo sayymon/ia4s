@@ -78,9 +78,11 @@ jobs:
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
       - name: Debug out directory
-        run: ls -ltr ./out            
+        run: ls -ltr ./out      
+        needs: Build with Next.js      
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
+        needs: Build with Next.js
         with:
           name: pages
           path: ${{ github.workspace }}/out
