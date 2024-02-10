@@ -71,14 +71,14 @@ jobs:
           # If source files changed but packages didn't, rebuild from a prior cache.
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
+      - name: Create output directory
+        run: mkdir out              
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
-      - name: Check directory
-        run: pwd        
       - name: Debug out directory
-        run: ls -ltr *            
+        run: ls -ltr ./out            
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
