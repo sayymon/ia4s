@@ -1,113 +1,88 @@
 import Image from "next/image";
 
+import { CSSProperties } from 'react';
+
+const VideoComponent: React.FC = () => {
+  return (
+    <video id="mivideo" autoPlay muted loop playsInline>
+      <source src="ia4s-introgaby.mp4" type="video/mp4" />
+      <source src="secuencia_01.ogv" type="video/ogg" />
+      Seu navegador não suporta o elemento de vídeo.
+    </video>
+  );
+}
+
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
+      <header>
+        <h1>
+          <Image
+                src="/ia4s-logo.svg"
+                alt="IA4s Logo"
+                className="dark:invert"
+                width={200}
+                height={50}
+                priority
+              />
+        </h1>
+      </header>
+      <VideoComponent />
+      <div id="textura"></div>
+      
+      <div className="wp">
+        <div className="container">
+          <div className="img i1" data-rel="ia4s" style={{ left: '49.75%', top: '70%' }}>
+            <span data-title=""></span>
+          </div>
+          <div className="img iEmpresas" data-rel="empresas" style={{ left: '62%', top: '65%' }}>
+            <span data-title="Empresas"></span>
+          </div>
+          <div className="img iCasa" data-rel="casa" style={{ left: '64%', top: '51%' }}>
+            <span data-title="Casa"></span>
+          </div>
+          <div className="img iTecnologia" data-rel="tecnologia" style={{ left: '61.5%', top: '42.5%' }}>
+            <span data-title="Tecnologia"></span>
+          </div>
+          <div className="img iVoce" data-rel="voce" style={{ left: '35%', top: '50%' }}>
+            <span data-title="Você"></span>
+          </div>
+          <div className="img iIA" data-rel="horarios" style={{ left: '49.75%', top: '32%' }}>
+            <span data-title="Inteligencia Artificial"></span>
+          </div>
+          <div className="img iMente" data-rel="contacto" style={{ left: '38%', top: '42.5%' }}>
+            <span data-title="Mente"></span>
+          </div>
+          <div className="img iVeiculo" data-rel="veiculo" style={{ left: '37%', top: '63.5%' }}>
+            <span data-title="Veiculo"></span>
+          </div>
+          
+          <div className="point">
+            <svg id="desktop" x="0px" y="0px" viewBox="0 0 1920 1080" enable-background="new 0 0 1920 1080" xmlSpace="preserve">
+              <g>
+                <line fill="none" stroke="#bbbbbb" x1="955" y1="325" x2="1250" y2="470"></line> {/* IA para Tecnologia */}
+                <line fill="none" stroke="#bbbbbb" x1="1250" y1="470" x2="1310" y2="590"></line> {/* Tecnologia para Casa */}
+                <line fill="none" stroke="#bbbbbb" x1="1310" y1="590" x2="1260" y2="790"></line> {/* Casa para Empresa */}
+                <line fill="none" stroke="#bbbbbb" x1="1260" y1="790" x2="955" y2="855"></line> {/* Empresa para IA4S */}
+                <line fill="none" stroke="#bbbbbb" x1="955" y1="855" x2="645" y2="760"></line> {/* IA4S para Veiculo */}
+                <line fill="none" stroke="#bbbbbb" x1="645" y1="760" x2="595" y2="580"></line> {/* Veiculo para Você */}
+                <line fill="none" stroke="#bbbbbb" x1="595" y1="580" x2="670" y2="470"></line> {/* Você para Mente */}
+                <line fill="none" stroke="#bbbbbb" x1="670" y1="470" x2="955" y2="325"></line> {/* Mente para IA */}
+              </g>
+            </svg>
+          </div> 
+          <div className="title" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/ia4s-logo.svg"
-          alt="IA4s Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+                  src="/ia4s-logo-removebg.png"
+                  alt="IA4S Logo"
+                  className="dark:invert"
+                  width={500}
+                  height={500}
+                  priority
+                />
+          </div>
+        </div>        
+      </div>      
     </main>
   );
 }
