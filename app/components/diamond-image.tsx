@@ -11,39 +11,58 @@ const DiamondImage: React.FC<{ src: string; alt: string; width: number; height: 
 
 const DiamondLayout: React.FC = () => {
 
-  const audioRef = useRef<HTMLAudioElement>(null);
-
   const playSoundAndRedirect = (icone: string, href: string) => {
-    // Reproduz o som
-    const audio = new Audio(`/hover-sound-${icone}.mp3`);
-    audio.play();
     
-    // Define o redirecionamento após a reprodução do áudio
-    setTimeout(() => {
+    let audio = playSound(icone);
+    handleIconClick(icone);
+    
+    audio.onended = () => {
       window.location.href = href;
-    }, 2000);
+    };    
   };
 
+  const playSound = (sound: string) => {
+    const clickedIcon = document.querySelector(`.zoom`);
+    const audio = new Audio(`./sounds/${sound}.mp3`);
+    if (!clickedIcon) {
+      audio.play();
+    }
+    return audio;
+  };  
 
+  const handleIconClick = (icone: string) => {
+    const clickedIcon = document.querySelector(`.${icone}`);
+    if (clickedIcon) {
+      const allIcons = document.querySelectorAll('.diamond-img');
+      allIcons.forEach(icon => {
+        if (icon !== clickedIcon) {
+          icon.classList.add('hide');
+        }
+      });
+
+      clickedIcon.classList.add('zoom');
+      clickedIcon.classList.remove('hide');
+    }
+  }
 
   return (
     <div className="diamond-container">
-      <div className="diamond-img ia-losango" onClick={() => playSoundAndRedirect("ia-losango", "/ia")}>
+      <div className="diamond-img ia-losango" onMouseOver={() => playSound("change")} onClick={() => playSoundAndRedirect("ia-losango", "/ia")}>
         <DiamondImage src="/ia-losango-logo.png" alt="IA" width={500} height={500}/>
       </div>
-      <div className="diamond-img you-brain" onClick={() => playSoundAndRedirect("you", "/you")}>
+      <div className="diamond-img you" onMouseOver={() => playSound("change")} onClick={() => playSoundAndRedirect("you", "/you")}>
         <DiamondImage src="/you-brain-logo.png" alt="You" width={150} height={150}/>
       </div>
-      <div className="diamond-img car" onClick={() => playSoundAndRedirect("car", "/car")}>
+      <div className="diamond-img car" onMouseOver={() => playSound("change")} onClick={() => playSoundAndRedirect("car", "/car")}>
         <DiamondImage src="/car-logo.png" alt="Car" width={200} height={100}/>
       </div>
-      <div className="diamond-img home" onClick={() => playSoundAndRedirect("home", "/home")}>
+      <div className="diamond-img home" onMouseOver={() => playSound("change")} onClick={() => playSoundAndRedirect("home", "/home")}>
         <DiamondImage src="/home-logo.png" alt="Home" width={150} height={150}/>
       </div>
-      <div className="diamond-img business-work" onClick={() => playSoundAndRedirect("business", "/business")}>
+      <div className="diamond-img business" onMouseOver={() => playSound("change")} onClick={() => playSoundAndRedirect("business", "/business")}>
         <DiamondImage src="/business-work-logo.png" alt="Business" width={150} height={150}/>
       </div>
-      <div className="diamond-img ia4s" onClick={() => playSoundAndRedirect("ia4s", "/ia4s")}>
+      <div className="diamond-img ia4s" onMouseOver={() => playSound("change")} onClick={() => playSoundAndRedirect("ia4s", "/ia4s")}>
         <DiamondImage src="/ia4s-logo.png" alt="IA4S" width={350} height={150}/>
       </div>
     </div>

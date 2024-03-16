@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body, html{
   overflow: hidden;
   width: 100%;height:100%;
@@ -10,7 +14,8 @@ video#mivideo{
   top:0;left: 0;
   min-width: 100%;
   height: 110%;
-  z-index: 0
+  z-index: 0;
+  opacity: 0.5;
 }
 header{
   position: absolute;
@@ -36,12 +41,30 @@ header{
   transform: scale(1.15) translate(-5%, -5%); /* Amplia a imagem em 5% ao passar o mouse */
 }
 
+.diamond-img.zoom {
+  transform: scale(1.40);
+  transition: transform 1.0s ease-in-out;
+  position: absolute;
+  left: 50%;
+  top: 40%;  
+}
+
+.zoom.ia-losango {
+  transform: scale(1.2); /* Aumenta em 20% */
+  left: 40%;
+  top: 20%;  
+}
+
+.diamond-img.hide {
+  opacity: 0;
+}
+
 .ia-losango {
   align-self: center;
   top: 20%;
 }
 
-.you-brain {
+.you {
   top: 30%;
   left: 25%;
 }
@@ -56,7 +79,7 @@ header{
   right: 25%;
 }
 
-.business-work {
+.business {
   top: 48%;
   right: 30%;   
 }
@@ -85,7 +108,7 @@ header{
     text-align: left;
   }
 
-  .you-brain  {
+  .you  {
     top: 0%;
     width: 50%;
   }
@@ -100,7 +123,7 @@ header{
     top: 35%;
   }  
 
-  .business-work  {
+  .business  {
     top: 45%;
     width: 55%;
   }
@@ -141,7 +164,7 @@ header{
     margin-top: 0; /* Remova a margem superior */
   }
 
-  .you-brain {
+  .you {
     top: 15%;
     left: 15%; /* Ajuste conforme necessário */
   }
@@ -156,7 +179,7 @@ header{
     left: 70%; /* Ajuste conforme necessário */
   }
 
-  .business-work {
+  .business {
     top: 10%;
     left: 100%; /* Ajuste conforme necessário */
   }
@@ -187,7 +210,7 @@ header{
     left: 35%; /* Ajuste conforme necessário */
   }
 
-  .you-brain {
+  .you {
     top: 35%;
     left: 20%; /* Ajuste conforme necessário */
   }  
@@ -207,7 +230,7 @@ header{
     right: 15%; /* Ajuste conforme necessário */
   }
 
-  .business-work {
+  .business {
     top: 45%;
     right: 25%; /* Ajuste conforme necessário */
   }  
